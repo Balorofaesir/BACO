@@ -22,16 +22,14 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { firstName, lastName, password, email, birthday, gender } = e.target;
+    const { userName, password, email, birthday } = e.target;
 
     try {
       const action = createUser({
-        firstName: firstName.value.toUpperCase(),
-        lastName: lastName.value.toUpperCase(),
+        firstName: userName.value.toLowerCase(),
         email: email.value.toLowerCase(),
         password: password.value,
         birthday: birthday.value,
-        gender: gender.value,
       });
       const { payload } = await dispatch(action);
       const { token } = payload;
@@ -47,32 +45,20 @@ const Signup = () => {
     }
   };
 
-  const gender = ['Male', 'Female', 'Other'];
-
   return (
-    <div>
+    <main>
       {errorMessage === true ? <Alert text="Wrong Credentials" /> : null}
       {isOpen && <TermsAndConditions />}
       <div className="signupForm__globalContainer">
         <form className="signupForm__container" onSubmit={handleSubmit}>
           <h1 className="signupForm__title">Register</h1>
-          <label htmlFor="firstName" className="signupForm__label">
-            First Name
+          <label htmlFor="userName" className="signupForm__label">
+            User Name
             <input
               type="text"
-              name="firstName"
+              name="userName"
               className="signupForm__input"
-              placeholder="First Name"
-              required
-            />
-          </label>
-          <label htmlFor="lastName" className="signupForm__label">
-            Last Name
-            <input
-              type="text"
-              name="lastName"
-              className="signupForm__input"
-              placeholder="Last Name"
+              placeholder="User Name"
               required
             />
           </label>
@@ -96,23 +82,6 @@ const Signup = () => {
               required
             />
           </label>
-          <label htmlFor="gender" className="signupForm__label">
-            Sex
-            <select
-              name="gender"
-              id="gender"
-              className="signupForm__input signupForm__input--select"
-              required
-              // onChange={handleInput}
-            >
-              {gender.map((data) => (
-                <option key={data} value={data}>
-                  {data}
-                </option>
-              ))}
-            </select>
-          </label>
-
           <label htmlFor="password" className="signupForm__label">
             Birthday
             <input
@@ -160,7 +129,7 @@ const Signup = () => {
           </Link>
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

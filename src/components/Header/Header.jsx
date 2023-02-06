@@ -30,19 +30,15 @@ const Header = ({ toggle, open }) => {
   };
   const ClickHome = () => {
     navegate('/');
-    toggle()
   };
   const ClickProfile = () => {
     navegate('/profile');
-    toggle()
   };
   const ClickLogin = () => {
     navegate('/login');
-    toggle()
   };
   const handleEvent = () => {
     navegate(`/myEvents`);
-    toggle()
   };
 
   return (
@@ -126,7 +122,7 @@ const Header = ({ toggle, open }) => {
       <div className="navegationBar">
         {open && (
           <section className="navegationBarList">
-            <button className="Home__button" type="button" onClick={ClickHome}>
+            <button className="Home__button" type="button" onClick={ClickHome && toggle}>
               Home
             </button>
             {/* <p> About</p> */}
@@ -136,7 +132,7 @@ const Header = ({ toggle, open }) => {
               <button
                 className="Home__button"
                 type="button"
-                onClick={ClickLogin}
+                onClick={ClickLogin && toggle}
               >
                 Login
               </button>
@@ -145,7 +141,7 @@ const Header = ({ toggle, open }) => {
                 <button
                   className="Home__button"
                   type="button"
-                  onClick={handleLogout}
+                  onClick={handleLogout && toggle}
                 >
                   Logout
                 </button>
@@ -155,7 +151,7 @@ const Header = ({ toggle, open }) => {
               <button
                 className="Home__button"
                 type="button"
-                onClick={ClickProfile}
+                onClick={ClickProfile && toggle}
               >
                 profile
               </button>
@@ -166,7 +162,7 @@ const Header = ({ toggle, open }) => {
               <img src="" alt="" />
               <button
             className="Home__button"
-            onClick={handleEvent}
+            onClick={handleEvent && toggle}
             type="button"
           >
             event

@@ -10,6 +10,7 @@ import Header from './components/Header/Header';
 import HomePage from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import EventDetails from "./pages/EventDetails/EventDetails"
 // import EventsPage from './components/eventsPage/eventsPage'
 // import { selectAuth,
 // setAuthUser
@@ -41,6 +42,8 @@ const App = () => {
         <Route path="/" element={<HomePage />}>
           {/* <Route path="urgency" element={<Emergency />} /> */}
         </Route>
+        <Route path="/event/:id" element={<EventDetails />} />
+
         {/* <Route
           path="/cart"
           element={
