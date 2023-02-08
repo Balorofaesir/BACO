@@ -3,14 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './Logins.css';
-// import NamesPages from '../../components/NamePages/NamePages';
-// import {
-//   createLogin,
-//   selectStatus,
-//   selectToken,
-// } from '../../features/login/loginSlice';
 import Alert from '../../components/Alert/Alert';
-// import Loading from '../../components/Loading/Loading';
 import { loginActionAsync } from '../../features/auth/authSlice';
 
 const Login = () => {

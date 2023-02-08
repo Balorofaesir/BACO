@@ -1,0 +1,122 @@
+.headerWineContainer--iconpage {
+  font-size: 24px;
+  margin: 0;
+}
+.headerWineContainer {
+  background-color: var(--wine);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+}
+.headerWineContainer--minicont {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: var(--whitepurple);
+  background-color: var(--wine);
+  min-width: 100px;
+}
+.navegationBarList {
+  display: flex;
+  flex-direction: column;
+}
+.header--SmallerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: 600;
+  background-color: var(--wine);
+}
+
+.Home__button {
+  background-color: var(--whitepurple);
+  border-radius: 25px;
+  border: 0px;
+  border-color: var(--woodbrown);
+  padding: 10px;
+  font: 16px Poppins, sans-serif;
+  font-weight: 600;
+  margin: 16px;
+  color: var(--graves);
+  min-width: 70px;
+}
+.Home__button:hover {
+  color: purple;
+}
+.Home__button:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+.List__button {
+  display: flex;
+  background-color: var(--whitepurple);
+  border: 0px;
+  border-radius: 15%;
+  font-size:xx-large;
+  font-weight: 600;
+  color: var(--graves);
+  justify-content: center;
+  justify-self: center;
+  height: fit-content;
+}
+.List__button:hover {
+  color: purple;
+}
+.List__button:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+.miniContainer2 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.miniContainer3 {
+  display: flex;
+  flex-direction: row;
+  max-height: 50px;
+  max-width: 50px;
+  align-items: center;
+  gap: 10px;
+}
+.navegationBar {
+  background-color: var(--wine);
+  display: flex;
+  justify-content: center;
+  color: black;
+  text-align: center;
+}
+.List__button--img{
+padding: 0px;
+margin: 0px;
+}
+
+@media (min-width: 1024px) {
+  .miniContainer2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  .miniContainer3 {
+    display: none;
+  }
+  .miniContainer4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .navegationBar {
+    display: none;
+  }
+  .List__button {
+  display: none;
+  }
+}

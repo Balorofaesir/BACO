@@ -61,7 +61,8 @@ const FindAEvent = () => {
                 alt=""
               />
             </div> */}
-            <p>{data.date} </p>
+            <p>Date:{data.date.slice(0, -14)} </p>
+            <p>Starts at:{data.date.slice(11, -8)} </p>
             <div>country: {data.country}</div>
             <div>city: {data.city}</div>
             <button
