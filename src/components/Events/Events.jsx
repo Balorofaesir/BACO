@@ -55,6 +55,9 @@ const FindAEvent = () => {
         Events.filter((data) => data.country.includes(country)).map((data) => (
           <section className="event--container" key={data._id}>
             <p>{data.name} </p>
+            <div className="event--container--image">
+            <img className="image" src={data.file} alt="doct" />
+          </div>
             <p>Date: {data.date.slice(0, -14)} </p>
             <p>Starts at: {data.date.slice(11, -8)} </p>
             <div>Country: {data.country}</div>

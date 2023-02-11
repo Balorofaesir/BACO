@@ -121,17 +121,27 @@
 .event-filter-input {
   color: var(--graves);
 }
+.input[type="file"]::file-selector-button {
+  display:none
+}
 .event--container {
-  text-align: justify;
   text-indent: 5px;
   display: flex;
   flex-direction: column;
   border: solid var(--woodbrown) 3px;
-  width: 345px;
+  width: 300px;
   padding: 10px;
   gap: 10px;
   color: var(--graves);
   background-color: var(--winerose);
+}
+
+.event--container--image img {
+  width: 280px;
+  margin: 0px;
+  padding: 0px;
+  align-self: center;
+  justify-self: center;
 }
 .event-details-button {
   background-color: var(--wine);
@@ -168,6 +178,25 @@
 }
 
 @media (min-width: 1280px) {
+  .event--container {
+    text-indent: 5px;
+    display: flex;
+    flex-direction: column;
+    border: solid var(--woodbrown) 3px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    color: var(--graves);
+    background-color: var(--winerose);
+  }
+
+  .event--container--image img {
+    width: 450px;
+    margin: 0px;
+    padding: 0px;
+  }
   .headerWineContainer--iconpage {
     justify-self: start;
     margin-left: 20px;
