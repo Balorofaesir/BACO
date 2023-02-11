@@ -26,7 +26,7 @@ const Signup = () => {
 
     try {
       const action = createUser({
-        firstName: userName.value.toLowerCase(),
+        userName: userName.value.toLowerCase(),
         email: email.value.toLowerCase(),
         password: password.value,
       });
