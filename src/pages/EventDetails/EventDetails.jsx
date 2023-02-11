@@ -47,7 +47,7 @@ const EventProfile = () => {
             <div className="eventDetails__section3--p">
               {" "}
               <h1>Country</h1>
-              <p>{data.city}</p>
+              <p>{data.country}</p>
               <h1>City</h1>
               <p>{data.city}</p>
             </div>
