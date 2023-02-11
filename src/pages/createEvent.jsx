@@ -120,7 +120,7 @@ const createEventComp = () => {
             />
             <h1>Date and hour</h1>
             <input
-              type="date"
+              type="datetime-local"
               name="date"
               className="form__textMessage"
               onChange={handleInput}
