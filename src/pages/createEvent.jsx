@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useState, useRef, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createEvent } from "../features/events/eventSlice";
 
 const URL = process.env.REACT_APP_API_URL;
@@ -14,9 +14,8 @@ const createEventComp = () => {
   const upLoadFiles = () => {
     referencia.current.click();
   };
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [image, setImage] = useState();
-  console.log("🚀 ~ file: createProduct.jsx:9 ~ createProduct ~ image", image);
   const [text, setText] = useState({
     name: null,
     description: null,
@@ -68,6 +67,8 @@ const createEventComp = () => {
     const response = await fetch(`${URL}/api/upload/file`, options);
     const resp = await response.json();
     dispatch(createEvent({ ...text, file: resp.url }))
+    alert("event created")
+    navigate("/profile")
   };
 
   return (
@@ -75,12 +76,13 @@ const createEventComp = () => {
       <section className="container-form">
         <div className="container-form__load-data">
           <form onSubmit={handleSubmit}>
+          <h1>Event Image</h1>
             {image ? (
               <img src={preview} onClick={upLoadFiles} alt="images" />
             ) : null}
             <input
               type="file"
-              className="input__Selectimage"
+              className="Home__button"
               name="image"
               onChange={handleChangeImage}
             />

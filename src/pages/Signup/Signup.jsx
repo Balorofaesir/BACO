@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import Alert from '../../components/Alert/Alert';
-import TermsAndConditions from '../../components/TermsAndConditios/TermsAndConditions';
-import { createUser } from '../../features/users/usersSlice';
-import { openModal } from '../../features/SignUpModal/loginmodalSlice';
-import './Signup.css';
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import Alert from "../../components/Alert/Alert";
+import TermsAndConditions from "../../components/TermsAndConditios/TermsAndConditions";
+import { createUser } from "../../features/users/usersSlice";
+import { openModal } from "../../features/SignUpModal/loginmodalSlice";
+import "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const  { isOpen }  = useSelector((state) => state.loginmodal);
+  const { isOpen } = useSelector((state) => state.loginmodal);
   const [errorMessage, setErrorMessage] = useState(false);
 
   const [checked, setChecked] = useState(false);
@@ -32,9 +32,9 @@ const Signup = () => {
       });
       const { payload } = await dispatch(action);
       const { token } = payload;
-      window.localStorage.setItem('token', token);
-      localStorage.setItem('auth', JSON.stringify(payload));
-      navigate('/');
+      window.localStorage.setItem("token", token);
+      localStorage.setItem("auth", JSON.stringify(payload));
+      navigate("/");
     } catch (err) {
       setErrorMessage(true);
       setTimeout(() => {
@@ -81,7 +81,6 @@ const Signup = () => {
               required
             />
           </label>
-
 
           <div className="signupOptions__container">
             <span className="signupForm__span">
