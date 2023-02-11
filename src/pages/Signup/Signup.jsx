@@ -22,14 +22,13 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { userName, password, email, birthday } = e.target;
+    const { userName, password, email } = e.target;
 
     try {
       const action = createUser({
         firstName: userName.value.toLowerCase(),
         email: email.value.toLowerCase(),
         password: password.value,
-        birthday: birthday.value,
       });
       const { payload } = await dispatch(action);
       const { token } = payload;
@@ -82,16 +81,7 @@ const Signup = () => {
               required
             />
           </label>
-          <label htmlFor="password" className="signupForm__label">
-            Birthday
-            <input
-              type="date"
-              name="birthday"
-              className="signupForm__input signupForm__input--date"
-              placeholder="Birthday"
-              required
-            />
-          </label>
+
 
           <div className="signupOptions__container">
             <span className="signupForm__span">
