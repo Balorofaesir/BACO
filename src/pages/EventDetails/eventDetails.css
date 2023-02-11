@@ -1,0 +1,33 @@
+.eventDetails{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.eventDetails p{
+  font-size: 45px;
+}
+.eventDetails__image img{
+  max-width: 400px ;
+
+}
+.eventDetails__section3--p{
+  color: var(--wine);
+}
+.eventDetails__title{
+  font-size: 50px;
+}
+@media (max-width: 1280px){
+  .eventDetails p{
+    font-size: 18px;
+  }
+  .eventDetails h1{
+    font-size: 24px;
+  }
+
+  .eventDetails__section3--p{
+    color: var(--wine);
+  }
+}

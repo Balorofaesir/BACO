@@ -1,0 +1,201 @@
+.headerWineContainer--iconpage {
+  font-size: 24px;
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+  grid-row-start: 2;
+}
+.headerWineContainer {
+  background-color: var(--wine);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: var(--whitepurple);
+}
+.headerWineContainer--section {
+  display: grid;
+  width: 100%;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.headerWineContainer--minicont {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: var(--whitepurple);
+  background-color: var(--wine);
+  justify-self: center;
+  grid-row-start: 2;
+}
+.navegationBarList {
+  display: flex;
+  flex-direction: column;
+}
+.header--SmallerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: 600;
+  background-color: var(--wine);
+  grid-row-start: 2;
+  justify-self: center;
+}
+
+.Home__button {
+  background-color: var(--whitepurple);
+  border-radius: 25px;
+  border: 0px;
+  border-color: var(--woodbrown);
+  padding: 10px;
+  font: 16px Poppins, sans-serif;
+  font-weight: 600;
+  margin: 16px;
+  color: var(--graves);
+  min-width: 70px;
+}
+.Home__button:hover {
+  color: purple;
+  opacity: 80%;
+}
+.Home__button:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+.List__button {
+  display: flex;
+  background-color: var(--whitepurple);
+  border: 0px;
+  border-radius: 15%;
+  font-size: xx-large;
+  font-weight: 600;
+  color: var(--graves);
+  justify-content: center;
+  justify-self: center;
+  height: fit-content;
+}
+.List__button:hover {
+  color: purple;
+  opacity: 80%;
+}
+.List__button:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+.miniContainer2 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.miniContainer3 {
+  display: flex;
+  flex-direction: row;
+  max-height: 50px;
+  max-width: 50px;
+  align-items: center;
+  gap: 10px;
+}
+.navegationBar {
+  background-color: var(--wine);
+  display: flex;
+  justify-content: center;
+  color: black;
+  text-align: center;
+}
+.List__button--img {
+  padding: 0px;
+  margin: 0px;
+}
+/* events component */
+.event {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 35px;
+}
+.event-filter-input {
+  color: var(--graves);
+}
+.event--container {
+  text-align: justify;
+  text-indent: 5px;
+  display: flex;
+  flex-direction: column;
+  border: solid var(--woodbrown) 3px;
+  width: 345px;
+  padding: 10px;
+  gap: 10px;
+  color: var(--graves);
+  background-color: var(--winerose);
+}
+.event-details-button {
+  background-color: var(--wine);
+  border-radius: 25px;
+  border: solid var(--woodbrown) 0px;
+  font-weight: 600;
+  color: var(--whitepurple);
+  width: 150px;
+  align-self: center;
+}
+.event-details-button:hover {
+  color: var(--woodbrown);
+  opacity: 80%;
+}
+.event-details-button:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+.home-signup-button {
+  background-color: var(--wine);
+  border-radius: 25px;
+  border: solid var(--woodbrown) 0px;
+  font-weight: 600;
+  color: var(--whitepurple);
+  align-self: center;
+}
+.home-signup-button:hover {
+  color: var(--woodbrown);
+  opacity: 80%;
+}
+.home-signup-button:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+
+@media (min-width: 1280px) {
+  .headerWineContainer--iconpage {
+    justify-self: start;
+    margin-left: 20px;
+  }
+  .headerWineContainer--minicont {
+    justify-self: end;
+    margin-right: 150px;
+  }
+  .miniContainer2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  .miniContainer3 {
+    display: none;
+  }
+  .miniContainer4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .navegationBar {
+    display: none;
+  }
+  .List__button {
+    display: none;
+  }
+}
