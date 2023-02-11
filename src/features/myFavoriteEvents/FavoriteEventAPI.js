@@ -1,21 +1,6 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
-export async function getEvents() {
-  try {
-    const response = await fetch(`${API_URL}/api/events/all`);
-    if (!response.ok) {
-      throw new Error(`Error! status: ${response.status}`);
-    }
-    const result = await response.json();
-    return result;
-  } catch (err) {
-    throw new Error(err);
-  }
-}
-export function getEspecificEvent(id) {
-  return fetch(`${API_URL}/api/events/all/${id}`).then((response) => response.json());
-}
-export function getEventsByCreator() {
+export function getFavsUserEvents() {
   const token = localStorage.getItem('token')
   return fetch(`${API_URL}/api/events/`, {
     method: 'GET',
@@ -27,9 +12,9 @@ export function getEventsByCreator() {
   }).then((res) => res.json());
 }
 
-export function createNewEvent(values) {
+export function createNewUsersFavoriteEvent(values) {
   const token = localStorage.getItem('token')
-  return fetch(`${API_URL}/api/events/`, {
+  return fetch(`${API_URL}/api/favs/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -39,4 +24,3 @@ export function createNewEvent(values) {
     body: JSON.stringify(values),
   }).then((res) => res.json());
 }
-

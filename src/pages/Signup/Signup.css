@@ -1,0 +1,112 @@
+.signupForm__globalContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.signupForm__container {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 17px;
+  color: #565656;
+  width: 40%;
+  align-self:center ;
+  justify-self: center;
+}
+
+
+
+.signupForm__label {
+  margin-bottom: 1.2em;
+  line-height: 2.5em;
+  color: var(--graves);
+}
+
+.signupForm__input {
+  display: block;
+  width: 96%;
+  padding: 0.8em;
+  border: 1px solid #dddddd;
+  border-radius: 0.4em;
+  font-size: 17px;
+}
+
+.signupForm__input--select {
+  background-color: white;
+  width: 100%;
+}
+
+.signupForm__input--date {
+  background-color: white;
+  width: 96.5%;
+}
+.signupOptions__container {
+  margin: 0.5em 0 0.5em;
+}
+
+.signupOptions__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.signupForm__inputOpt {
+  border: 1px solid #dddddd;
+  border-radius: 0.4em;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.signupForm__terms--conditions {
+  color: var(--woodbrown);
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  background-color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signupForm__link--login {
+  color: var(--woodbrown);
+  text-decoration: none;
+  font-size: 17px;
+  margin: 1em 0 2em;
+}
+.signupForm__link--login:hover{
+  color: purple
+}
+
+.loginForm__btn {
+  background-color: var(--wine);
+  color: white;
+  border: transparent;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 15px;
+  font-size: 28px;
+  border-radius: 15px;
+  align-self: center;
+  width:max-content;
+}
+.loginForm__btn:hover {
+  color:var(--woodbrown);
+  opacity: 80%;
+ }
+.loginForm__btn:active {
+  color: var(--whiterose);
+  background-color: var(--graves);
+}
+
+.loginForm__btn:disabled {
+  cursor: not-allowed;
+}
+
+
+
+
+
+@media (max-width: 700px) {
+  .signupForm__btn {
+    width: 100%;
+  }
+}

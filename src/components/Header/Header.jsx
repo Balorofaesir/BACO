@@ -29,11 +29,14 @@ const Header = ({ toggle, open }) => {
     localStorage.removeItem("auth");
     localStorage.removeItem("token");
     dispatch(logout());
-    toggle()
+    toggle();
     navegate("/");
   };
   const ClickHome = () => {
     navegate("/");
+  };
+  const handleSignUp = () => {
+    navegate("/signUp");
   };
   const ClickProfile = () => {
     navegate("/profile");
@@ -41,43 +44,39 @@ const Header = ({ toggle, open }) => {
   const ClickLogin = () => {
     navegate("/login");
   };
-  const handleEvent = () => {
-    navegate(`/myEvents`);
-    toggle()
-  };
+  // const handleEvent = () => {
+  //   navegate(`/myEvents`);
+  //   toggle();
+  // };
   const ClickHometoggle = () => {
     navegate("/");
-    toggle()
+    toggle();
   };
   const ClickProfiletoggle = () => {
     navegate("/profile");
-    toggle()
+    toggle();
   };
   const ClickLogintoggle = () => {
     navegate("/login");
-    toggle()
+    toggle();
   };
-  const handleEventtoggle = () => {
-    navegate(`/myEvents`);
-    toggle()
-  };
+  // const handleEventtoggle = () => {
+  //   navegate(`/myEvents`);
+  //   toggle();
+  // };
 
   return (
-    <section>
-      <section className="headerWineContainer">
-        <div className="headerWineContainer--minicont">
-          <p className="headerWineContainer--iconpage">
-            BACO
-            <GiCaesar />
-          </p>
-        </div>
+    <div className="headerWineContainer">
+      <div className="headerWineContainer--section">
+        <p className="headerWineContainer--iconpage">
+          BACO
+          <GiCaesar />
+        </p>
         <section className="header--SmallerContainer">
           <section className="miniContainer2">
             <button className="Home__button" type="button" onClick={ClickHome}>
               Home
             </button>
-            {/* <p> About</p> */}
-
             {!isAuth ? (
               <button
                 className="Home__button"
@@ -107,39 +106,41 @@ const Header = ({ toggle, open }) => {
               </button>
             )}
 
-            <button
+            {/* <button
               className="Home__button"
               onClick={handleEvent}
               type="button"
             >
               event
-            </button>
+            </button> */}
           </section>
-            <button
-              className="List__button"
-              type="button"
-              onClick={toggle}
-            >
-                <AiOutlineMenu />
-            </button>
-        </section>  <div className="headerWineContainer--minicont">
-        <p>
-          <ImProfile /> User:{" "}
+          <button className="List__button" type="button" onClick={toggle}>
+            <AiOutlineMenu />
+          </button>
+        </section>{" "}
+        <div className="headerWineContainer--minicont">
+          <p>
+            <ImProfile /> user
+          </p>
           {isAuth ? (
             <button
               type="button"
               onClick={ClickProfile}
-              className="Home__button__white"
+              className="home-signup-button"
             >
-              {profile.firstName}{" "}
+              {profile.userName}{" "}
             </button>
           ) : (
-            <span> </span>
+            <button
+              type="button"
+              onClick={handleSignUp}
+              className="home-signup-button"
+            >
+              Not user? sign up
+            </button>
           )}
-        </p>
+        </div>
       </div>
-      </section>
-
 
       <div className="navegationBar">
         {open && (
@@ -181,22 +182,10 @@ const Header = ({ toggle, open }) => {
                 profile
               </button>
             )}
-
-            <div>
-              <img src="" alt="" />
-              <img src="" alt="" />
-              <button
-                className="Home__button"
-                onClick={handleEventtoggle}
-                type="button"
-              >
-                event
-              </button>
-            </div>
           </section>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

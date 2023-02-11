@@ -5,6 +5,7 @@ import {
   getEvent,
   //  selectEvent
 } from "../../features/events/eventSlice";
+import "./eventDetails.css";
 
 const EventProfile = () => {
   const params = useParams();
@@ -25,26 +26,25 @@ const EventProfile = () => {
   return (
     <div>
       {data?.name && (
-        <div className="cont5">
-          <div className="cont5__image">
-            <img className="image" src={data.image} alt="doct" />
+        <div className="eventDetails">
+          <h1 className="eventDetails__title">{data.name}</h1>
+          <div className="eventDetails__image">
+            <img className="image" src={data.file} alt="doct" />
           </div>
-          <h1 className="event1">{data.name}</h1>
-
-          <div className="cont5__section3">
-            <h1>description</h1>
-            <div className="cont5__section3--p">
+          <div className="eventDetails__section3--p">
+            <h1>Description</h1>
+            <div className="eventDetails__section3--p">
               <p>{data.description}</p>
             </div>
-            <h1>date</h1>
-            <div className="cont5__section3--p">
+            <h1>Date</h1>
+            <div className="eventDetails__section3--p">
               <p>{data.date.slice(0, -14)}</p>
             </div>
-            <div className="cont5__section3--p">
-              <h1>hour</h1>
+            <div className="eventDetails__section3--p">
+              <h1>Starts At...</h1>
               <p>{data.date.slice(11, -8)}</p>
             </div>
-            <div className="cont5__section3--p">
+            <div className="eventDetails__section3--p">
               {" "}
               <h1>Country</h1>
               <p>{data.city}</p>
@@ -57,7 +57,7 @@ const EventProfile = () => {
               <li>Member of the general dental council USA</li>
             </ul>
           </div>
-          <div className="cont5__section4">
+          <div className="eventDetails__section4">
             <h1>Skills</h1>
             <div>
               {data.skills.map((data1) => (

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import {getEvents, getEspecificEvent } from './eventAPI';
+import {getEvents, getEspecificEvent, createNewEvent } from './eventAPI';
 
 const initialState = {
   events: [],
@@ -7,6 +7,14 @@ const initialState = {
   error: null,
 };
 
+// create event method post
+export const createEvent = createAsyncThunk(
+  'events/',
+  async (values) => {
+    const response = await createNewEvent(values);
+    return response;
+  }
+);
 export const setEvents = createAsyncThunk('events/getEvents', async () => {
   const response = await getEvents();
   return response;

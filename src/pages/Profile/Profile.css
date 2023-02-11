@@ -1,0 +1,66 @@
+.mainProfile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.Profile--generalContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  border: 3px solid var(--woodbrown) !important;
+  margin: 5px;
+  padding: 0px;
+  max-width: 300px;
+  gap: 5px;
+}
+.profile_container h1 {
+  margin: 0px;
+  padding: 0px;
+}
+.profile_container1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  width: 320px;
+  text-align: left;
+}
+.profile_container1 button {
+  margin: 0px;
+  margin-top: 20px;
+  border: solid var(--woodbrown) 3px;
+}
+.profile_container--containers {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.profile__elementName {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+.profile__elementName--element {
+  font-weight: 400;
+  margin-left: 0.3em;
+}
+/* .email {
+  text-transform: none;
+} */
+.signupForm__container button {
+  margin: 0px;
+  margin-top: 20px;
+  border: solid var(--woodbrown) 3px;
+}

@@ -107,7 +107,7 @@ const Signup = () => {
                 <button
                   onClick={() => dispatch(openModal())}
                   type="button"
-                  className="signupForm__terms--conditions"
+                  className="Home__button"
                   required
                 >
                   Terms & Conditions
@@ -116,11 +116,11 @@ const Signup = () => {
             </span>
           </div>
           {checked === true ? (
-            <button type="submit" className="signupForm__btn">
+            <button type="submit" className="loginForm__btn">
               Register now →
             </button>
           ) : (
-            <button type="submit" className="signupForm__btn" disabled>
+            <button type="submit" className="loginForm__btn" disabled>
               Register now →
             </button>
           )}
