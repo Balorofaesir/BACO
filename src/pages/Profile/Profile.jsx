@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import getMyProfile from "../../services/user";
 import { getEventsByCreator } from "../../features/events/eventAPI";
 import "./Profile.css";
-import { modifyUser } from "../../features/users/usersAPI";
+// import { modifyUser } from "../../features/users/usersAPI";
+import { modUser } from "../../features/users/usersSlice";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -16,13 +17,13 @@ const Profile = () => {
   const navigate = useNavigate();
   const handleClick = (data) => {
     navigate(`/Event/${data}`);
-  }
+  };
   // const MyFavoriteEvents = () => {
   //   navigate(`/my-favorite-events`);
   // }
   const handleEventCreator = () => {
     navigate(`/event-creator`);
-  }
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchData = async () => {
@@ -34,15 +35,24 @@ const Profile = () => {
     fetchData();
   }, []);
 
-  const handleModifyProfileInput = (event) => {
+  const handleModifyProfileInput = async (event) => {
     event.preventDefault();
-    const { userName, email } = event.target;
+    const { userName
+      // , password
+     } = event.target;
     try {
-      const dataToSend = {
-        firstName: userName.value.toLowerCase(),
-        email: email.value.toLowerCase(),
-      };
-      dispatch(modifyUser(profile._id, dataToSend));
+      const action = modUser({
+        id:profile._id,
+        data: {
+        userName: userName.value.toLowerCase(),
+
+        }
+        // password: password.value
+      });
+      const {payload} = await dispatch(action)
+      localStorage.setItem('auth', JSON.stringify(payload))
+      alert("profile succefully edited ");
+      toggle()
     } catch (err) {
       throw new Error(err);
     }
@@ -62,10 +72,10 @@ const Profile = () => {
                   <span>loading</span>
                 )}
               </h1>
-              <h1>
+              {/* <h1>
                 email:
                 {profile ? <span> {profile.email}</span> : <span>loading</span>}
-              </h1>
+              </h1> */}
 
               <button type="button" onClick={toggle} className="Home__button">
                 edit profile
@@ -73,8 +83,12 @@ const Profile = () => {
               {/* <button type="button" onClick={MyFavoriteEvents} className="Home__button">
               MyFavoriteEvents
               </button> */}
-              <button type="button" onClick={handleEventCreator} className="Home__button">
-              Event-creator
+              <button
+                type="button"
+                onClick={handleEventCreator}
+                className="Home__button"
+              >
+                Event-creator
               </button>
             </section>
             <section>
@@ -145,20 +159,17 @@ const Profile = () => {
               id="userName"
             />
           </label>
-
-          <label htmlFor="email" className="signupForm__label">
-            Email
+          {/* <label htmlFor="email" className="signupForm__label">
+            Password
             <input
-              type="email"
-              name="email"
-              className="signupForm__input"
-              placeholder="Enter your email"
-              required
-              // onChange={handleInput}
-              id="email"
+                type="password"
+                name="password"
+                className="signupForm__input"
+                placeholder="Enter your password"
+                required
             />
-          </label>
-          <button type="submit" className="Home__button" onClick={toggle}>
+          </label> */}
+          <button type="submit" className="Home__button">
             edit profile
           </button>
           <button type="button" className="Home__button" onClick={toggle}>

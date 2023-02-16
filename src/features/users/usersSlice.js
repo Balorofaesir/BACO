@@ -28,10 +28,11 @@ export const getUser = createAsyncThunk(
     return response;
   }
 );
-export const modProfile = createAsyncThunk(
-  'User/modifyUser',
-  async (id, value) => {
-    const response = await modifyUser(id, value)
+export const modUser = createAsyncThunk(
+  'User/modUser',
+  async (values) => {
+   const { id, data } = values
+    const response = await modifyUser(id, data)
     return response
   }
 
@@ -98,7 +99,24 @@ const UserSlice = createSlice({
         const newState = { ...state };
         newState.loading = false;
         newState.error = action.payload;
+      })
+      .addCase(modUser.pending, (state) => {
+        const newState = { ...state };
+        newState.loading = true;
+        return newState;
+      })
+      .addCase(modUser.fulfilled, (state, action) => {
+        const newState = { ...state };
+        newState.loading = false;
+        newState.User = action.payload;
+        return newState;
+      })
+      .addCase(modUser.rejected, (state, action) => {
+        const newState = { ...state };
+        newState.loading = false;
+        newState.error = action.payload;
       });
+
   },
 });
 
