@@ -12,6 +12,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((state) => state.loginmodal);
   const [errorMessage, setErrorMessage] = useState(false);
+  const [signMessage, setSignMessage] = useState(false);
 
   const [checked, setChecked] = useState(false);
 
@@ -34,90 +35,98 @@ const Signup = () => {
       const { token } = payload;
       window.localStorage.setItem("token", token);
       localStorage.setItem("auth", JSON.stringify(payload));
-      navigate("/");
+      setSignMessage(true);
+      setTimeout(() => {
+        setSignMessage(false);
+        navigate("/login");
+      }, 4000);
     } catch (err) {
       setErrorMessage(true);
       setTimeout(() => {
         setErrorMessage(false);
-      }, 200);
+      }, 5000);
       throw new Error(err);
     }
   };
 
   return (
     <main>
-      {errorMessage === true ? <Alert text="Wrong Credentials" /> : null}
+      {signMessage === true ? (
+        <h1 className="signupForm__title">User created, please log-in</h1>
+      ) : null}
+      {errorMessage === true ? <Alert text="Sign Up succefully" /> : null}
       {isOpen && <TermsAndConditions />}
-      <div className="signupForm__globalContainer">
-        <form className="signupForm__container" onSubmit={handleSubmit}>
-          <h1 className="signupForm__title">Register</h1>
-          <label htmlFor="userName" className="signupForm__label">
-            User Name
-            <input
-              type="text"
-              name="userName"
-              className="signupForm__input"
-              placeholder="User Name"
-              required
-            />
-          </label>
-          <label htmlFor="email" className="signupForm__label">
-            Email
-            <input
-              type="email"
-              name="email"
-              className="signupForm__input"
-              placeholder="Enter your email"
-              required
-            />
-          </label>
-          <label htmlFor="password" className="signupForm__label">
-            Password
-            <input
-              type="password"
-              name="password"
-              className="signupForm__input"
-              placeholder="Enter your password"
-              required
-            />
-          </label>
-
-          <div className="signupOptions__container">
-            <span className="signupForm__span">
-              <label htmlFor="conditions" className="signupForm__labelOpt">
-                <input
-                  type="checkbox"
-                  name="conditions"
-                  className="signupForm__inputOpt"
-                  onClick={handleCheck}
-                  required
-                />
-                I agree with the
-                <button
-                  onClick={() => dispatch(openModal())}
-                  type="button"
-                  className="Home__button"
-                  required
-                >
-                  Terms & Conditions
-                </button>
-              </label>
-            </span>
-          </div>
-          {checked === true ? (
-            <button type="submit" className="loginForm__btn">
-              Register now →
-            </button>
-          ) : (
-            <button type="submit" className="loginForm__btn" disabled>
-              Register now →
-            </button>
-          )}
-          <Link to="/login" className="signupForm__link--login">
-            Already have an account? Login
-          </Link>
-        </form>
-      </div>
+      {signMessage === false ? (
+        <div className="signupForm__globalContainer">
+          <form className="signupForm__container" onSubmit={handleSubmit}>
+            <h1 className="signupForm__title">Register</h1>
+            <label htmlFor="userName" className="signupForm__label">
+              User Name
+              <input
+                type="text"
+                name="userName"
+                className="signupForm__input"
+                placeholder="User Name"
+                required
+              />
+            </label>
+            <label htmlFor="email" className="signupForm__label">
+              Email
+              <input
+                type="email"
+                name="email"
+                className="signupForm__input"
+                placeholder="Enter your email"
+                required
+              />
+            </label>
+            <label htmlFor="password" className="signupForm__label">
+              Password
+              <input
+                type="password"
+                name="password"
+                className="signupForm__input"
+                placeholder="Enter your password"
+                required
+              />
+            </label>
+            <div className="signupOptions__container">
+              <span className="signupForm__span">
+                <label htmlFor="conditions" className="signupForm__labelOpt">
+                  <input
+                    type="checkbox"
+                    name="conditions"
+                    className="signupForm__inputOpt"
+                    onClick={handleCheck}
+                    required
+                  />
+                  I agree with the
+                  <button
+                    onClick={() => dispatch(openModal())}
+                    type="button"
+                    className="Home__button"
+                    required
+                  >
+                    Terms & Conditions
+                  </button>
+                </label>
+              </span>
+            </div>
+            {checked === true ? (
+              <button type="submit" className="loginForm__btn">
+                Register now →
+              </button>
+            ) : (
+              <button type="submit" className="loginForm__btn" disabled>
+                Register now →
+              </button>
+            )}
+            <Link to="/login" className="signupForm__link--login">
+              Already have an account? Login
+            </Link>
+          </form>
+        </div>
+      ) : null}
     </main>
   );
 };

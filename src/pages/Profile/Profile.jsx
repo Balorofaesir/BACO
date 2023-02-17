@@ -45,13 +45,12 @@ const Profile = () => {
         id:profile._id,
         data: {
         userName: userName.value.toLowerCase(),
-
         }
         // password: password.value
       });
       const {payload} = await dispatch(action)
       localStorage.setItem('auth', JSON.stringify(payload))
-      alert("profile succefully edited ");
+      alert("profile successfully edited");
       toggle()
     } catch (err) {
       throw new Error(err);
