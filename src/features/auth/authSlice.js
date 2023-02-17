@@ -17,6 +17,8 @@ export const loginActionAsync = createAsyncThunk('auth/login', async ({email, pa
   return response;
 })
 
+
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -28,7 +30,7 @@ const authSlice = createSlice({
     },
     setAuthUser: (state, action) => {
       state.isAuth = true;
-      state.token = action.payload.token;
+      // state.token = action.payload.token;
       state.profile = action.payload.profile;
     },
   },

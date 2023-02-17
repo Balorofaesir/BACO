@@ -14,8 +14,9 @@ export async function modifyUser(id, userData) {
   const res = await fetch(`${API_URL}/api/users/edit/${id}`, {
     method: 'PATCH',
     headers: ({'Content-Type': 'application/json'}),
-    body: JSON.stringify(userData)
+    body: JSON.stringify(userData),
   });
+  console.log("userdata:", userData)
   if (res.ok) return res.json();
   throw new Error('error user not modified!');
 }

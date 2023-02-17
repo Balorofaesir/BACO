@@ -122,7 +122,7 @@
   color: var(--graves);
 }
 .input[type="file"]::file-selector-button {
-  display:none
+  display: none;
 }
 .event--container {
   text-indent: 5px;
@@ -175,6 +175,32 @@
 .home-signup-button:active {
   color: var(--whiterose);
   background-color: var(--graves);
+}
+.container-form__load-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-form__load-data input {
+  max-width: 500px;
+}
+.container-form__load-data-img {
+  width: 90%;
+  max-width: 500px;
+  align-self: center;
+  justify-content: center;
+}
+.input-description{
+  width: 85%;
+  max-width: 700px;
+  height: 100px;
+  text-align: start;
+  writing-mode: horizontal-tb !important;
+  column-count: initial !important;
+}
+.Home__button input{
+display: none;
 }
 
 @media (min-width: 1280px) {

@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useState, useRef, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { createEvent } from "../features/events/eventSlice";
 
 const URL = process.env.REACT_APP_API_URL;
@@ -66,37 +66,28 @@ const createEventComp = () => {
     };
     const response = await fetch(`${URL}/api/upload/file`, options);
     const resp = await response.json();
-    dispatch(createEvent({ ...text, file: resp.url }))
-    alert("event created")
-    navigate("/profile")
+    dispatch(createEvent({ ...text, file: resp.url }));
+    alert("event created");
+    navigate("/profile");
   };
 
   return (
     <section>
       <section className="container-form">
-        <div className="container-form__load-data">
-          <form onSubmit={handleSubmit}>
-          <h1>Event Image</h1>
-            {image ? (
-              <img src={preview} onClick={upLoadFiles} alt="images" />
-            ) : null}
-            <input
-              type="file"
-              className="Home__button"
-              name="image"
-              onChange={handleChangeImage}
-            />
+        <div>
+          <form className="container-form__load-data" onSubmit={handleSubmit}>
             <h1>name</h1>
             <input
               type="name"
               className="form__textMessage"
               name="name"
               onChange={handleInput}
+              required
             />
             <h1>description</h1>
-            <input
+            <textarea
               type="text"
-              className="form__textMessage"
+              className="input-description"
               name="description"
               onChange={handleInput}
               required
@@ -118,6 +109,28 @@ const createEventComp = () => {
               onChange={handleInput}
               required
             />
+             <h1>Event Image</h1>
+            {image ? (
+              <img
+                className="container-form__load-data-img"
+                src={preview}
+                onClick={upLoadFiles}
+                alt="images"
+              />
+            ) : null}
+            <div className="Home__button">
+              <label htmlFor="file">
+                Select Image
+                <input
+                  type="file"
+                  id="file"
+                  name="image"
+                  onChange={handleChangeImage}
+              required
+
+                />
+              </label>
+            </div>
             <h1>Date and hour</h1>
             <input
               type="datetime-local"
