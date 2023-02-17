@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import getMyProfile from "../../services/user";
 import { getEventsByCreator } from "../../features/events/eventAPI";
+import { setAuthUser } from "../../features/auth/authSlice";
 import "./Profile.css";
-// import { modifyUser } from "../../features/users/usersAPI";
 import { modUser } from "../../features/users/usersSlice";
 
 const Profile = () => {
@@ -34,24 +34,37 @@ const Profile = () => {
     };
     fetchData();
   }, []);
+  useEffect(()=>{
+
+  },[profile])
 
   const handleModifyProfileInput = async (event) => {
     event.preventDefault();
-    const { userName
-      // , password
-     } = event.target;
+    const {
+      userName,
+      // password
+    } = event.target;
     try {
       const action = modUser({
-        id:profile._id,
+        id: profile._id,
         data: {
-        userName: userName.value.toLowerCase(),
-        }
-        // password: password.value
+          userName: userName.value,
+          // password: password.value
+        },
+
       });
-      const {payload} = await dispatch(action)
-      localStorage.setItem('auth', JSON.stringify(payload))
+      const { payload } = await dispatch(action);
+      localStorage.setItem("auth", JSON.stringify(payload));
+      const action2 = setAuthUser({
+        profile: {
+          userName: userName.value,
+          role: "USER",
+        },
+      });
+      await dispatch(action2);
+      // localStorage.setItem("auth", JSON.stringify(payload2));
       alert("profile successfully edited");
-      toggle()
+      toggle();
     } catch (err) {
       throw new Error(err);
     }
@@ -71,10 +84,10 @@ const Profile = () => {
                   <span>loading</span>
                 )}
               </h1>
-              {/* <h1>
+              <h1>
                 email:
                 {profile ? <span> {profile.email}</span> : <span>loading</span>}
-              </h1> */}
+              </h1>
 
               <button type="button" onClick={toggle} className="Home__button">
                 edit profile

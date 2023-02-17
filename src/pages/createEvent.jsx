@@ -82,6 +82,7 @@ const createEventComp = () => {
               className="form__textMessage"
               name="name"
               onChange={handleInput}
+              required
             />
             <h1>description</h1>
             <textarea
@@ -125,6 +126,8 @@ const createEventComp = () => {
                   id="file"
                   name="image"
                   onChange={handleChangeImage}
+              required
+
                 />
               </label>
             </div>
