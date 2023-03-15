@@ -25,7 +25,10 @@
   max-width: 300px;
   gap: 5px;
 }
-.profile_container h1 {
+.profile_container button{
+margin-bottom: 5px ;
+}
+.profile_container1 h1 {
   margin: 0px;
   padding: 0px;
 }
@@ -63,4 +66,24 @@
   margin: 0px;
   margin-top: 20px;
   border: solid var(--woodbrown) 3px;
+}
+@media (min-width: 1280px) {
+  .profile_container {
+   font-size: x-large;
+   max-width: 700px;
+  }
+  .profile_container button {
+    width: 400px;
+    font-size: larger;
+    margin-bottom: 10px;
+   }
+  .profile_container1 {
+    font-size: x-large;
+    width: 1000px;
+   }
+   .profile_container1 button {
+    font-size: x-large;
+
+   }
+
 }

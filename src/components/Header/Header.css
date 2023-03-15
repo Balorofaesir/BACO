@@ -118,6 +118,14 @@
   justify-content: space-around;
   gap: 35px;
 }
+.event-filters{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
 .event-filter-input {
   color: var(--graves);
 }
@@ -217,7 +225,9 @@ display: none;
     color: var(--graves);
     background-color: var(--winerose);
   }
-
+  .event-filter-input {
+    font-size: xx-large;
+  }
   .event--container--image img {
     width: 450px;
     margin: 0px;
