@@ -4,6 +4,10 @@
   justify-self: center;
   align-self: center;
   grid-row-start: 2;
+  animation: shakingOut 1s ease-in-out alternate-reverse;
+}
+.headerWineContainer--iconpage:hover {
+  animation: shaking 1s ease-in-out infinite alternate;
 }
 .headerWineContainer {
   background-color: var(--wine);
@@ -118,7 +122,7 @@
   justify-content: space-around;
   gap: 35px;
 }
-.event-filters{
+.event-filters {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -150,6 +154,7 @@
   padding: 0px;
   align-self: center;
   justify-self: center;
+  border-radius: 30px;
 }
 .event-details-button {
   background-color: var(--wine);
@@ -159,6 +164,7 @@
   color: var(--whitepurple);
   width: 150px;
   align-self: center;
+  transition: all 500ms;
 }
 .event-details-button:hover {
   color: var(--woodbrown);
@@ -199,7 +205,7 @@
   align-self: center;
   justify-content: center;
 }
-.input-description{
+.input-description {
   width: 85%;
   max-width: 700px;
   height: 100px;
@@ -207,11 +213,46 @@
   writing-mode: horizontal-tb !important;
   column-count: initial !important;
 }
-.Home__button input{
-display: none;
+.Home__button input {
+  display: none;
 }
-
-@media (min-width: 1280px) {
+@keyframes shaking {
+  0% {
+    transform: translateX(30%);
+    color: var(--graves);
+  }
+  33% {
+    transform: translateX(50%);
+    color: var(--graves);
+  }
+  66% {
+    transform: translateX(80%);
+    color: var(--graves);
+  }
+  100% {
+    transform: translateX(100%);
+    color: var(--graves);
+  }
+}
+@keyframes shakingOut {
+  0% {
+    transform: translateX(30%);
+    color: var(--whiterose);
+  }
+  33% {
+    transform: translateX(50%);
+    color: var(--whiterose);
+  }
+  66% {
+    transform: translateX(80%);
+    color: var(--whiterose);
+  }
+  100% {
+    transform: translateX(100%);
+    color: var(--whiterose);
+  }
+}
+@media (min-width: 900px) {
   .event--container {
     text-indent: 5px;
     display: flex;
@@ -237,6 +278,7 @@ display: none;
     justify-self: start;
     margin-left: 20px;
   }
+
   .headerWineContainer--minicont {
     justify-self: end;
     margin-right: 150px;
@@ -263,4 +305,5 @@ display: none;
   .List__button {
     display: none;
   }
+
 }
